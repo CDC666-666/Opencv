@@ -4,7 +4,7 @@ def callback():
 
 cv2.namedWindow('color', cv2.WINDOW_NORMAL)
 
-img = cv2.imread('/home/cdc/桌面/Python/opencv/test_1.jpg')
+img = cv2.imread('/home/c/桌面/Opencv/test_1.jpg')
 
 
 colorspaces = [cv2.COLOR_BGR2RGBA, cv2.COLOR_BGR2BGRA, cv2.COLOR_BGR2GRAY, cv2.COLOR_BGR2HSV_FULL,
