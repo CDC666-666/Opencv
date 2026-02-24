@@ -1,6 +1,9 @@
 import cv2
 import numpy as np
 
+min_w = 90
+min_h = 90
+
 video_path = '/home/c/桌面/Opencv/video.avi'
 
 cap = cv2.VideoCapture(video_path)
@@ -32,12 +35,16 @@ while True:
         for(i, c) in enumerate(cnts):
             (x, y, w, h)= cv2.boundingRect(c)
             cv2.rectangle(frame, (x, y), (x+w, y+h), (0,0,255), 2)
-
+            
+            isValid = (w >= min_w) and ( h >= min_h)
+            if( not isValid):
+                continue
+                
         cv2.imshow('video', frame)
 
 
     key = cv2.waitKey(10)
-    if(key & 0xFF == ord('q')):
+    if key & 0xFF == ord('q'):
         break
 
 cap.release()
